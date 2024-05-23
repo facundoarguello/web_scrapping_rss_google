@@ -1,0 +1,6 @@
+requests==2.25.1
+feedparser
+bs4
+fastapi
+uvicorn[standard]
+pydantic
