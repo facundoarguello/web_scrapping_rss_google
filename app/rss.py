@@ -47,13 +47,15 @@ def get_list_info_from_scrappin_page_from_rss(items_from_rss:list, cantidad:int)
         fecha_formateada = fecha_datetime.strftime(format_date)
         print("LOG: link:", link_to_page)
         print("LOG: index: ",index)
-        response_text = get_text_from_page(link_to_page)
+        response_text, type_page = get_text_from_page(link_to_page)
 
         if response_text is None:
             continue
         else:
             try:
-                get_obj_scrap = scrapping_html_and_return_obj(response_text)
+                get_obj_scrap = None
+                if 'text/html' in type_page:
+                    get_obj_scrap = scrapping_html_and_return_obj(response_text)
                 print("LOG: index: ",index)
                 print("LOG: objetscrap: ",get_obj_scrap)
 
