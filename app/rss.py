@@ -6,7 +6,7 @@ from scrapping_html.scrapping import scrapping_html_and_return_obj
 def verify_logo(logo_url:str, url_page:str) -> str:
     
     if 'http' not in logo_url:
-        if logo_url == '/favicon.ico' or logo_url== '/images/icons/favicon.png' or logo_url== '/images/icons/favicon.ico':
+        if  '/favicon.ico' in logo_url or  'favicon.png' in logo_url or  'favicon.jpg' in logo_url:
             logo_url = url_page + logo_url
 
     return logo_url
